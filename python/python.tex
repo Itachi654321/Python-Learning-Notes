@@ -1,0 +1,447 @@
+\documentclass{book}%文档类型
+
+\usepackage[heading=true]{ctex}%引入中文,可选参数貌似是改变默认设置
+\usepackage{fancyhdr}%改变页面格式
+\pagestyle{fancy}%改变页面格式
+\lfoot{}%页脚格式
+\usepackage{}
+\usepackage{amsmath}%某种数学宏包
+\usepackage{titlesec}%改变标题格式
+\usepackage{amssymb}%某种数学宏包
+\usepackage{geometry}%页面设置
+\usepackage{makecell}%表格内换行
+\usepackage{pifont}%序号
+\geometry{centering}%版心居中
+\geometry{top=2cm}
+\geometry{bottom=2cm}
+\geometry{left=2cm}
+\geometry{right=2cm}%边缘宽度
+
+\begin{document}
+	
+	\setlength{\parindent}{0pt}%取消首行缩进
+	\begin{titlepage}%标题页
+		\vspace*{\fill}
+		
+		\begin{center}
+		\normalfont%字体设置
+		{\huge\bfseries Python}
+		%此处需要通过空行来换行
+		
+		\bigskip
+		{\Large\itshape 张容康\\2150931}
+	\end{center}
+    \vspace{\stretch{3}}
+    \end{titlepage}
+
+	\thispagestyle{fancy}
+	\newpage
+	\let\cleardoublepage\clearpage%清除空白页
+	\thispagestyle{empty}%清除页眉、页脚
+	\tableofcontents%目录页
+	
+	\part{写在学前}
+	
+	\chapter{课程安排}
+	
+	\section{上课时间、地点、座位}
+	时间：每周三晚第10-12节课\\
+	地点：南楼413教室（南楼四楼中央教室）、机房\\	
+	座位：靠窗组最后一排内座，方便电脑充电\\
+	
+	\section{成绩组成}
+	出勤：上课出勤、上机出勤\\
+	作业：网上作业、随堂作业\\
+	考试：期中考试、期末考试\\
+	平时成绩占20\%。\\
+	作业提交、测验网址为http://jsjjc.tongji.edu.cn(同济大学计算机基础教研室)。\\
+	
+	\section{教材、作业}
+	教材：Python程序设计基础（上）\\
+	作业：实验作业与补充作业\\
+	
+	\chapter{资源}
+	
+	\section{课程讲义}
+	Python程序设计基础（上）\\
+	
+	\section{GoodNotes}
+	贝叶斯思维统计建模的Python学习法\\
+	从Excel到Python\\
+	集体智慧编程\\
+	利用Python进行数据分析\\
+	零起点Python机器学习快速入门\\
+	流畅的Python\\
+	深度学习入门\\
+	数据科学入门\\
+	网络爬虫，Python和数据分析\\
+	用Python写网络爬虫\\
+	征服Python\\
+	A Primer on Scientific Programming with Python\\
+	Effective Python\\
+	Head First Python\\
+	Learning Python\\
+	MySQL Cookbook\\
+	Natural Language Processing with Python\\
+	PyQt5快速开发与实战\\
+	Python Cookbook\\
+	Python Machine Learning\\
+	Python编程：从入门到实践\\
+	Python编程（上）\\
+	Python编程（下）\\
+	Python编程快速上手\\
+	Python标准库\\
+	Python参考手册\\
+	Python高级编程\\
+	Python高级编程(1)\\
+	Python核心编程\\
+	Python灰帽子——黑客与逆向工程师的编程之道\\
+	Python机器学习及实践\\
+	Python技术手册\\
+	Python深度学习\\
+	Python网络编程\\
+	Python学习手册\\
+	Python游戏编程快速上手\\
+	Python源码剖析\\
+	Python中文官方文档\\
+	
+	\section{B站}
+	花了2万多买的Python教程全套\\	
+	
+	\chapter{指南、问题、错误、日常}
+	
+	\section{指南}
+	Python的学习需要每天坚持，坚持是进步的催化剂。每天坚持学习Python，不但是知识和能力的积累，还是导致质变的必要条件。\\
+	
+	\section{问题}
+	使用import*导入库中的所有函数和类，会不会存在命名重复的情况并产生覆盖。\\
+	如何查看库中含有哪些函数和类。\\
+	PyCharm如何安装第三方库。\\
+	
+	\section{错误}
+	GoodNotes-Python编程：从入门到实践-P52-squares.py-\ding{186}：缩进错误。\\
+
+	\section{日常}
+	2022.3.16开始学习Python。\\
+	\begin{table}[h]
+		\begin{tabular}{|c|c|}
+			\hline
+			2022.3.16&\makecell[c]{做第一次上机实验补充内容\\听晚课\\学习GoodNotes-Python编程：从入门到实践\\学习B站-花了2万多买的Python教程全套}\\
+			\hline
+			2022.3.17&\makecell[c]{学习GoodNotes-Python编程：从入门到实践\\}\\
+			\hline
+			2022.3.18&\makecell[c]{学习GoodNotes-Python编程：从入门到实践\\}\\
+			\hline
+			2022.3.19&\makecell[c]{学习GoodNotes-Python编程：从入门到实践\\}\\
+			\hline
+			2022.3.20&\makecell[c]{学习GoodNotes-Python编程：从入门到实践\\}\\
+			\hline
+		\end{tabular}
+	\end{table}
+
+\part{课程讲义}
+
+\chapter{Python程序设计基础（上）}
+
+\part{GoodNotes}
+
+\chapter{Python编程：从入门到实践}
+
+\section{变量和简单数据类型}
+
+{\heiti 变量、字符串}\\
+为变量赋值的通用格式为：\\
+$$\makebox{变量=‘语句’}$$\\
+变量名只能包含字母、数字、下划线，不能包含空格，开头只能使用字母或者下划线。\\
+~\\
+修改字符串的大小写：\\
+$$\makebox{变量.title/upper/lower()}$$\\
+分别可使字符串首字母大写、全部大写、全部小写。\\
+~\\
+字符串的拼接：\\
+$$\makebox{print('语句1'+变量+'语句2')}$$\\
+$$\makebox{变量2='语句1'+变量1+'语句2'}$$\\
+~\\
+
+{\heiti 空白}\\
+添加空白：在字符串中使用'\textbackslash n'和'\textbackslash t'来产生空行或者制表符。换行和制表符本质上是空字符串，所以需要加上引号。在字符串中换行直接在相应位置使用\textbackslash n即可。\\
+~\\
+删除空白的格式为：\\
+$$\makebox{变量.lstrip/strip/rstrip()}$$\\
+即可删除左边、左右、右边的空白。\\
+~\\
+
+{\heiti Python之禅}\\
+输入imort this，运行即输出Python之禅。\\
+~\\
+
+\section{列表简介}
+
+{\heiti 创建列表}\\
+创建列表的基本格式为：\\
+$$\makebox{列表名称=['元素1','元素2',\dots ,'元素n']}$$\\
+当列表元素为空时创建为空列表。\\
+~\\
+
+{\heiti 访问、使用列表元素}\\
+访问、使用列表元素的基本格式为：\\
+$$\makebox{列表名称.[元素位置]}$$\\
+其中元素位置可以采取正向也可采取反向，正向第一个元素序号为0。\\
+~\\
+
+{\heiti 修改列表元素}\\
+修改列表元素的格式为：\\
+$$\makebox{列表名称.[]='新元素名称'}$$\\
+~\\
+列表末尾添加元素的格式为：\\
+$$\makebox{列表名称.append('新元素名称')}$$\\
+~\\
+列表中插入元素的格式为：\\
+$$\makebox{列表名称.insert(元素位置,'新元素名称')}$$\\
+~\\
+根据位置删除列表元素的格式为：\\
+$$\makebox{del 列表名称.[元素位置]}$$\\
+~\\
+根据值删除列表元素的格式为：\\
+$$\makebox{列表名称.remove('元素名称'/变量名称)}$$\\
+~\\
+弹出列表元素的格式为：\\
+$$\makebox{列表名称.pop(元素位置)}$$\\
+当括号内为空时默认弹出末尾元素。\\
+~\\
+
+{\heiti 组织列表}\\
+
+按字母顺序排列：\\
+$$\makebox{列表名称.sort()}$$\\
+括号中使用reverse=true可按字母顺序反向排列。\\
+~\\
+反转排列顺序:\\
+$$\makebox{列表名称.reverse()}$$\\
+~\\
+确定列表长度：\\
+$$\makebox{len(列表名称)}$$\
+~\\
+
+\section{操作列表}
+
+{\heiti 遍历列表}\\
+遍历列表的格式为：\\
+$$\makebox{for x in 列表名称：}$$\\
+其中，x为任意指定的变量名称，注意for语句结束要使用冒号，for语句之后采用适当缩进的代码行为对列表元素采取的操作。\\
+~\\
+
+{\heiti range函数、数字列表}\\
+创建数字列表：\\
+$$\makebox{列表名称=list(range(左闭,右开,步长))}$$\\
+~\\
+遍历range函数：\\
+$$\makebox{for x in range(左闭,右开,步长):}$$\\
+x为任意指定的数字列表中的变量名称。\\
+~\\
+统计数字列表：\\
+$$\makebox{min/max/sum(列表名称)}$$\\
+依次可对数字列表中的元素求最大值、最小值、和。\\
+~\\
+列表解析：\\
+$$\makebox{列表名称=[含数学符号的表达式 for 任意变量名 in range(左闭,右开,步长)]}$$\\
+~\\
+
+{\heiti 切片}\\
+选取切片：\\
+$$\makebox{列表名称[切片左端:切片右端]}$$\\
+省略切片左端，默认从0位置开始；省略切片右端，默认到-1结束；省略切片左端和有段，默认输出整个列表。\\
+~\\
+遍历切片：\\
+$$\makebox{for 变量名称 in 列表名称[起始位置:结束位置]:}$$\\
+~\\
+复制列表：\\
+$$\makebox{复制列表名称=原列表名称[:]}$$\\
+这是产生的是两个分别独立的列表。\\
+如果采用以下格式：\\
+$$\makebox{复制列表名称=原列表名称}$$\\
+此时两列表相互关联，实际上为同一列表。\\
+~\\
+
+{\heiti 元组}\\
+元组与列表的区别是单个元素是否可以改变，其余操作与列表相同。\\
+元组的格式为：\\
+$$\makebox{元组名称=(变量,'字符串')}$$\\
+访问元组元素：\\
+$$\makebox{元组名称[元素位置]}$$\\
+元组元素不可单独修改，但可为整个元组赋值：\\
+$$\makebox{元组名称=(新元素)}$$\\
+~\\
+
+{\heiti PEP8格式设置指南}\\
+访问地址：https://peps.python.org/pep-0008/。\\
+
+\section{if语句}
+
+{\heiti 条件测试}\\
+if后表达式称为条件测试，值为True执行下一级，值为False忽略下一级。\\
+检查相等/不相等：\\
+$$\makebox{if 变量==/！='字符串'/数值:}$$\\
+~\\
+比较数值：\\
+$$\makebox{if 变量==/！=/>/</>=/<=数值:}$$\\
+~\\
+and、or：\\
+and、or用于条件表达式中判断多个条件:\\
+$$\makebox{if '条件表达式1' and/or '条件表达式2'：}$$\\
+~\\
+检查元素是否在列表中：\\
+$$\makebox{if 变量/'字符串' in/not in 列表名称：}$$\\
+~\\
+if语句同for函数一样，需要在句末使用冒号。\\
+~\\
+
+{\heiti if-elif-else结构}\\
+$\makebox{if 条件测试1：}$\\
+$\makebox{\hspace{4em}执行语句1}$\\
+$\makebox{elif 条件测试2：}$\\
+$\makebox{\hspace{4em}执行语句2}$\\
+\dots\\
+$\makebox{else：}$\\
+$\makebox{\hspace{4em}执行语句n}$\\
+~\\
+
+{\heiti if语句处理列表}\\
+示例:\\
+$\makebox{if 列表名称：}$\\
+$\makebox{\hspace{4em}for 变量名称 in 列表名称：}$\\
+$\makebox{\hspace{8em}执行语句1}$\\
+$\makebox{\hspace{4em}else:}$\\
+$\makebox{\hspace{8em}执行语句2}$\\
+$\makebox{else:}$\\
+$\makebox{\hspace{4em}执行语句3}$\\
+第一个if语句用于判断列表是否为空，为空执行else。\\
+~\\
+
+\section{字典}
+{\heiti 操作字典}\\
+创建字典:\\
+$$\makebox{字典名称=\{'键名称':'值字符串'/数值,\dots\}}$$\\
+~\\
+访问字典：\\
+$$\makebox{字典名称['键名称']}$$\\
+当键所对应的值为数值时，需要使用str()转化为字符串输出。\\
+~\\
+添加键值对：\\
+$$\makebox{字典名称['键名称'='值字符串'/数值]}$$\\
+~\\
+
+\part{B站}
+
+\chapter{花了2万多买的Python教程全套}
+
+\section{Python自述}
+
+{\heiti Python学习思路}\\
+基础课程（自动化运维、多媒体处理、人工智能应用、自动化办公、Web开发、Python爬虫）$\longrightarrow$科学计算（数据分析、数据处理、量化变易）$\longrightarrow$机器学习（数据挖掘、搜索算法、机器学习算法、推荐算法）$\longrightarrow$深度学习。\\
+~\\
+
+{\heiti Python学习和就业方向}\\
+(1)Web全栈开发方向：\\
+前端开发、数据库管理、后台框架技术$\longrightarrow$Web全栈开发工程师；\\
+(2)数据科学方向：\\
+数据库管理、数据分析、数据可视化、能够制作数据看板、实现数据指标监控$\longrightarrow$数据产品经理、量化交易、初级BI商业分析师。\\
+(3)人工智能方向-机器学习：\\
+掌握机器学习常用算法和思想、利用Python建立机器学习模型、对一些应用场景进行智能化$\longrightarrow$数据分析工程师、机器学习算法工程师、搜索算法工程师、推荐算法工程师。\\
+(4)人工智能方向-深度学习：\\
+掌握深度学习常用框架、自行搭建图像相关算法、自行搭建NLP相关算法、掌握GAN网络相关算法$\longrightarrow$人工智能工程师。\\
+~\\
+
+{\heiti Python语言特点}\\
+(1)是一种跨平台的计算机程序设计语言；\\
+(2)是一种解释性的语言，没有编译的环节；\\
+(3)是一种交互式语言；\\
+(4)是面向对象语言。\\
+~\\
+
+{\heiti Python解释器}\\
+解释器是一种计算机程序，可将高级程序语言转换为机器代码。其中：\\
+IDLE是Python自带的简单开发环境；\\
+Python 3.x(32/64-bit)是交互式命令行程序；\\
+Manuals是官方技术文档；\\
+Module Docs是已安装的模块文档。\\
+~\\
+
+{\heiti Python编译器}\\
+编译器可将高级语言编写的程序转换成机器代码，将人可读的代码转换成计算机可读的代码（0和1）。\\
+
+\section{基础语法}
+{\heiti 输出函数print}\\
+输出函数print可以输出到显示器或者文件中。\\
+整数、浮点数、变量、含有运算符的表达式(输出运算结果)可以直接输出，字符串需要加上引号输出。\\
+同一个print函数中的内容输出在同一行，不同print函数中的内容会换行输出。\\
+输出到指定文件的方式为：\\
+$\makebox{fp=open('文件地址','a+')}$\\
+$\makebox{print(输出内容,file=fp)}$\\
+$\makebox{fp.close()}$\\
+如果指定文件位置存在，则在原文件后追加新内容。\\
+如果需要输出多个字符串，字符串之间需要用逗号分割，如：\\
+$$\makebox{print('字符串1','字符串2')}$$\\
+~\\
+
+\part{杂记}
+
+{\heiti 输入函数input}\\
+通用格式为：\\
+$$\makebox{变量=input('提示语')}$$\\
+此时赋予的数据类型均为string型。\\
+~\\
+进行算数运算时，强制转换数据类型的格式为：
+$$\makebox{变量=int/float(input('提示语'))}$$\\
+~\\
+在提示语中加入变量的方式为：\\
+$$\makebox{变量1=input(‘提示语1’+str(变量2)+‘提示语2’)}$$\\
+~\\
+同时输入多个变量的格式为：\\
+$$\makebox{变量1，变量2，\dots ,变量n=input('提示语').split()/(',')}$$
+输入时，可以用用空格分离变量值，也可以用逗号分离变量值。此时返回值为一个列表，不能直接转换类型。\\
+~\\
+用输入函数为多个变量赋予其他数据类型的方法为：\\
+$$\makebox{变量1，变量2，\dots ,变量n=map(int/float,input('提示语').split()/(','))}$$\\
+~\\
+
+{\heiti 内置函数chr与进制}\\
+使用格式为：\\
+$$\makebox{变量=chr(进制提示符\quad 相应进制下的ASCII码)}$$\\
+0b为二进制，0o为八进制，0d为十进制，0x为十六进制。输入值为相应进制下的ASCII码，返回值为对应的字符。\\
+~\\
+将十进制下的字符转换为其他进制下的ASCII码方法为：\\
+$$\makebox{bin(),oct(),hex()}$$\\
+可依次将十进制转换为二进制、八进制、十六进制的ASCII码。\\
+~\\
+其他进制转换为十进制的方法：\\
+$$\makebox{eval('0xASCII码')}$$\\
+
+{\heiti 保留小数位数}\\
+(1)$$\makebox{变量=浮点数}$$\\
+$$\makebox{round(变量，有效数字位数)}$$\\
+~\\
+(2)$$\makebox{'\%.nf'\%a}$$\\
+其中，n为保留小数位数，f表示数据类型为浮点数。\\
+~\\
+
+{\heiti 随机数}\\
+随机生成一个[0,1)的浮点数：\\
+$$\makebox{random.random()}$$\\
+~\\
+随机产生一个[a,b)的浮点数：\\
+$$\makebox{random.uniform(a,b)}$$\\
+~\\
+随机生成一个[a,b]的整数：\\
+$$\makebox{random.randint(a,b)}$$\\
+~\\
+从一个序列中随机选取一个元素：\\
+$$\makebox{random.choice(sequence)}$$\\
+~\\
+
+{\heiti PyCharm中设置Python File开头模板}\\
+设置路径为：\\
+$$\makebox{File$\rightarrow$Settings$\rightarrow$Editor$\rightarrow$Code Style$\rightarrow$File and Code Templates$\rightarrow$Python Script}$$\\
+~\\
+
+\end{document}
